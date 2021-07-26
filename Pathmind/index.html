@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -93,118 +93,89 @@
 </div>
 
 <div class="container">
-  <div class="card">    
-    <div class="card-body">
+	<div class="card">
+		<div class="card-body">
 
-      <h4 class="header-title">Query Policy to get Predicted Action</h4>
-      <p class="text-muted font-14">
-        Use the fields below to experiment with different inputs and see how the policy reacts.
-      </p>
+			<h4 class="header-title">Query Policy to get Predicted Action</h4>
+			<p class="text-muted font-14">
+				Use the fields below to experiment with different inputs and see how the policy reacts.
+			</p>
 
-      <!-- This is where the obersations begin, given the 9 obs from the LF 3 collums with 3 elements should work
-      for repsonsive design they should stack 
-      Have to make sure that all 9 elemnts are in the same form -->
+			<!-- This is where the obersations begin, given the 9 obs from the LF 3 collums with 3 elements should work
+		for repsonsive design they should stack
+		Have to make sure that all 9 elemnts are in the same form -->
+			<form>
+				<div class="form-row">
+					<div class="form-group col-md-4">
+						<input type="number" class="form-control" id="inputStockRacer" placeholder="Stock Racer">
+					</div>
+					<div class="form-group col-md-4">
+						<input type="number" class="form-control" id="inputStockBullbar" placeholder="Stock Bullbar">
+					</div>
+					<div class="form-group col-md-4">
+						<input type="number" class="form-control" id="inputStockRollcage" placeholder="Stock Rollcage">
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="form-group col-md-4">
+						<input type="number" class="form-control" id="inputOrdersRacer" placeholder="Orders Racer">
+					</div>
+					<div class="form-group col-md-4">
+						<input type="number" class="form-control" id="inputOrdersBullbar" placeholder="Orders Bullbar">
+					</div>
+					<div class="form-group col-md-4">
+						<input type="number" class="form-control" id="inputOrdersRollcage" placeholder="Orders Rollcage">
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="form-group col-md-4">
+						<input type="number" class="form-control" id="inputWIPRacer" placeholder="WIP Racer">
+					</div>
+					<div class="form-group col-md-4">
+						<input type="number" class="form-control" id="inputWIPBullbar" placeholder="WIP Bullbar">
+					</div>
+					<div class="form-group col-md-4">
+						<input type="number" class="form-control" id="inputWIPRollcage" placeholder="WIP Rollcage">
+					</div>
+				</div>
 
-      
-        
-      <div class="container">
-        <div class="row">  
-          <div class="col">
-            <h4 class="text-uppercase mb-4">STOCK</h4>
-            <p class="lead mb-0">
-              <form>
-                <div class="form-group">
-                  <input type="number " class="form-control" id="SRacer" placeholder="Stock Racer">
-                </div>
-                <div class="form-group">
-                  <input type="number " class="form-control" id="SBullBar" placeholder="Stock BullBar">
-                </div>
-                <div class="form-group">
-                  <input type="number " class="form-control" id="SRollCage" placeholder="Stock RollCage">
-                </div>
-              </form>
-            </p>
-          </div>
-  
-          <div class="col">
-            <h4 class="text-uppercase mb-4">ORDERS</h4>
-            <p class="lead mb-0">
-              <form>
-                <div class="form-group">
-                  <input type="number " class="form-control" id="ORacer" placeholder="Orders Racer">
-                </div>
-                <div class="form-group">
-                  <input type="number " class="form-control" id="OBullBar" placeholder="Orders BullBar">
-                </div>
-                <div class="form-group">
-                  <input type="number " class="form-control" id="ORollCage" placeholder="Orders RollCage">
-                </div>
-              </form>
-            </p>         
-          </div>
-
-          <div class="col">
-            <h4 class="text-uppercase mb-4">WIP</h4>
-            <p class="lead mb-0">
-              <form>
-                <div class="form-group">
-                  <input type="number " class="form-control" id="WRacer" placeholder="WIP Racer">
-                </div>
-                <div class="form-group">
-                  <input type="number " class="form-control" id="WBullBar" placeholder="WIP BullBar">
-                </div>
-                <div class="form-group">
-                  <input type="number " class="form-control" id="WRollCage" placeholder="WIP RollCage">
-                </div>
-              </form>
-            </p>     
-          </div>
-        </div>
-
-          <div class="form-group row">
-            <div class="col-lg">
-              <!--<form onsubmit="submission()">
-              <button class="btn btn-primary" type="submit">Get Policy Prediction</button>
-              </form> -->
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#success-alert-modal">
-                Get Policy Prediction
-              </button> 
-            
-   
-              <div class="modal fade" id="success-alert-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">Coming Soon!</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-
-                    <div class="modal-body">
-                      In future versions of this demo, we will show what predictions look like here.
-
-                    </div>
-      
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                      <button type="button" id="btn-predict" class="btn btn-primary" >Predict next Action </button>
-                    </div>
+				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#success-alert-modal">
+					Get Policy Prediction
+				</button>
 
 
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+				<div class="modal fade" id="success-alert-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="exampleModalLabel">Coming Soon!</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
 
-        </div>
-      </div>
-  
+							<div class="modal-body">
+								In future versions of this demo, we will show what predictions look like here.
+
+							</div>
+
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+								<button type="button" id="btn-predict" class="btn btn-primary">Predict next Action </button>
+							</div>
+
+
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+
+
+		
 
     </div>
   </div>           
-</div>
 
 </section>
 

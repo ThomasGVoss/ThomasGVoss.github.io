@@ -101,42 +101,42 @@
 				Use the fields below to experiment with different inputs and see how the policy reacts.
 			</p>
 
-			<!-- This is where the obersations begin, given the 9 obs from the LF 3 collums with 3 elements should work
-		for repsonsive design they should stack
+			<!-- This is where the observations begin, given the 9 obs from the LF, 3 collums with 3 elements should work
+		for repsonsive design they should stack and not stay next to each other,
 		Have to make sure that all 9 elemnts are in the same form -->
     
-			<form class="needs-validation" novalidate>
+			<form name="reg">
 				<div class="form-row">
 					<div class="form-group col-md-4">
-						<input type="number" class="form-control" id="inputStockRacer" placeholder="Stock Racer" required>
+						<input type="number" class="form-control" id="inputStockRacer" placeholder="Stock Racer" required name="inputStockRacer" />
 					</div>
 					<div class="form-group col-md-4">
-						<input type="number" class="form-control" id="inputStockBullbar" placeholder="Stock Bullbar" required>
+						<input type="number" class="form-control" id="inputStockBullbar" placeholder="Stock Bullbar" required name="inputStockBullbar" />
 					</div>
 					<div class="form-group col-md-4">
-						<input type="number" class="form-control" id="inputStockRollcage" placeholder="Stock Rollcage" required>
+						<input type="number" class="form-control" id="inputStockRollcage" placeholder="Stock Rollcage" required name="inputStockRollcage" />
 					</div>
 				</div>
 				<div class="form-row">
 					<div class="form-group col-md-4">
-						<input type="number" class="form-control" id="inputOrdersRacer" placeholder="Orders Racer" required>
+						<input type="number" class="form-control" id="inputOrdersRacer" placeholder="Orders Racer" required name="inputOrdersRacer" />
 					</div>
 					<div class="form-group col-md-4">
-						<input type="number" class="form-control" id="inputOrdersBullbar" placeholder="Orders Bullbar" required>
+						<input type="number" class="form-control" id="inputOrdersBullbar" placeholder="Orders Bullbar" required name="inputOrdersBullbar" />
 					</div>
 					<div class="form-group col-md-4">
-						<input type="number" class="form-control" id="inputOrdersRollcage" placeholder="Orders Rollcage" required>
+						<input type="number" class="form-control" id="inputOrdersRollcage" placeholder="Orders Rollcage" required name="inputOrdersRollcage" />
 					</div>
 				</div>
 				<div class="form-row">
 					<div class="form-group col-md-4">
-						<input type="number" class="form-control" id="inputWIPRacer" placeholder="WIP Racer" required>
+						<input type="number" class="form-control" id="inputWIPRacer" placeholder="WIP Racer" required name="inputWIPRacer" />
 					</div>
 					<div class="form-group col-md-4">
-						<input type="number" class="form-control" id="inputWIPBullbar" placeholder="WIP Bullbar" required>
+						<input type="number" class="form-control" id="inputWIPBullbar" placeholder="WIP Bullbar" required name="inputWIPBullbar" />
 					</div>
 					<div class="form-group col-md-4">
-						<input type="number" class="form-control" id="inputWIPRollcage" placeholder="WIP Rollcage" required>
+						<input type="number" class="form-control" id="inputWIPRollcage" placeholder="WIP Rollcage" required name="inputWIPRollcage" />
 					</div>
 				</div>
 
@@ -169,42 +169,66 @@
 					</div>
 				</div>
 
-        <button class="btn btn-primary" type="submit">Submit form</button>
+        <!-- This is the button being used for now! -->
+        <button class="btn btn-primary" type="submit" onclick="myFunction()">Submit form</button>
 
-        <script>
-          (function() {
-            'use strict';
-
-            var url = "https://api.test.devpathmind.com/policy/id4165/predict/";
-
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", url, true);
-
-            xhr.setRequestHeader("accept", "application/json");
-            xhr.setRequestHeader("access-token", "b19e0116-9f8d-4449-a996-2074f76ffb36");
-            xhr.setRequestHeader("Content-Type", "application/json");
-
-            xhr.onreadystatechange = function () {
-              if (xhr.readyState === 4) {
-                  console.log(xhr.status);
-                  console.log(xhr.responseText);
-              }};
-
-            var data = JSON.stringify({"email": "hey@mail.com", "password": "101010"});
-
-            xhr.send(data);
-          })();
-
-          </script>
 			</form>
-		</div>
 
+      <script>
+        function myFunction(){           
+          var myHeaders = new Headers();
+          myHeaders.append("Content-Type", "application/json");
+          myHeaders.append("Accept", "application/json");
+          myHeaders.append("Authorization", " Basic Zm9vOmJhcg==");     
+          //myHeaders.append("access-token", "b19e0116-9f8d-4449-a996-2074f76ffb36");   
+         
+          var ST0 = 0; //parseInt(document.getElementById("inputStockRacer").value);
+          var ST1 = 0;//parseInt(document.getElementById("inputStockBullbar").value);
+          var ST2 = 0; //parseInt(document.getElementById("inputStockRollcage").value);
 
-		
+          var OT0 = 3; //parseInt(document.getElementById("inputOrdersRacer").value);
+          var OT1 = 0; //parseInt(document.getElementById("inputOrdersBullbar").value);
+          var OT2 = 0; //parseInt(document.getElementById("inputOrdersRollcage").value);
 
+          var WT0 = 0; //parseInt(document.getElementById("inputWIPRacer").value);
+          var WT1 = 0; //parseInt(document.getElementById("inputWIPBullbar").value);
+          var WT2 = 0; // parseInt(document.getElementById("inputWIPRollcage").value);
+
+          var raw = JSON.stringify({
+            "OrderT0": OT0,
+            "OrderT1": OT1,
+            "OrderT2": OT2,
+            "StockT0": ST0,
+            "StockT1": ST1,
+            "StockT2": ST2, 
+            "WIPT0": WT0,
+            "WIPT1": WT1,
+            "WIPT2": WT2}) 
+
+          var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: raw
+          };
+          
+          fetch("https://leuphana.devpathmind.com/api/predict", requestOptions)
+            .then(response => response.text())
+            .then(result => {
+              result.actions
+              console.log(result)
+            })
+            .catch(error => console.log('error', error)); 
+
+         
+        
+        };
+      </script>
     </div>
-  </div>           
+  </div> 
+</div> 
+</div> 
 
+</div>            
 </section>
 
 </body>
@@ -279,3 +303,31 @@
   </div>
 
 </html>
+
+
+var raw = JSON.stringify({
+  "actionMask": [
+    true,
+    true,
+    true,
+    true
+  ],
+  "stateChartState": [
+    0,
+    0,
+    0
+  ]
+});
+
+var requestOptions = {
+  method: 'POST',
+  mode: 'no-cors',
+  headers: myHeaders,
+  body: raw,
+  redirect: 'follow'
+};
+
+fetch("https://api.test.devpathmind.com/policy/id4165/predict/", requestOptions)
+  .then(response => response.text())
+  //.then(result => console.log(result))
+  .catch(error => console.log('error', error)); 

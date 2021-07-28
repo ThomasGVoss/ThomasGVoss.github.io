@@ -205,23 +205,25 @@
             "WIPT1": WT1,
             "WIPT2": WT2})
 
-					var url = 'https://api.test.devpathmind.com/policy/id4667/predict_raw/';
+					// To bypass CORS, connect to a proxy.
+					const proxyUrl = "https://cors-anywhere.herokuapp.com/"
+					const url = `${proxyUrl}https://api.test.devpathmind.com/policy/id4667/predict_raw/`;
+					const request = new Request(url);
+
+					// Use predict_raw so we can pass in a raw obs array.
 					var data = {"obs": [0,0,0,0,0,0,0,0,0]};
 
+					// Test to see if it works.
 					var requestOptions = {
             method: 'POST',
             headers: myHeaders,
-            body: data
+            body: JSON.stringify(data)
           };
-
-					console.log(requestOptions);
 
 					fetch(url, requestOptions)
 					  .then(response => response.json())
             .then(result => {
-              console.log(result);
-              const act = result.actions;
-              document.getElementById('container').innerHTML = act;
+              console.log("Result", result);
             })
             .catch(error => console.log('error', error));
 

@@ -8,12 +8,10 @@
 	<meta name="description" content="Personal Page">
 	<meta name="author" content="Thomas Voss">
 
-	<title>Thomas Voss - Pathmind Example</title>
+	<title>Thomas Voss - Simulation</title>
 
    	<!-- Custom fonts for this theme -->
 	<link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-	<link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
 	<!-- Theme CSS -->
 	<link href="../css/freelancer.css" rel="stylesheet">
@@ -45,7 +43,7 @@
     </div>
 
     <!-- Masthead Subheading -->
-    <p class="masthead-subheading font-weight-light mb-0">PATHMIND USECASE</p>
+    <p class="masthead-subheading font-weight-light mb-0">Simulation | Logistik | Lehre</p>
 
 	</div>
 </header>
@@ -53,18 +51,20 @@
 <body id="page-top">
 
 <!-- About Section -->
-<section class="page-section bg-light text-black mb-0" id="about">
+<section class="page-section bg-light text-black mb-0" id="Simulation">
   <div class="container">
     <!-- About Section Heading -->
-    <h2 class="page-section-heading text-center text-uppercase text-black">Simulation Modell</h2>
+    <h2 class="page-section-heading text-center text-uppercase text-black">SimulationsmodelL aus der Leuphana Lernfabrik</h2>
 
     <!-- Icon Divider -->
     <div class="divider-custom divider-dark">
       <div class="divider-custom-line"></div>
     </div>
 
-    <div class="contrainer">
-      All details can be found here: <br>
+    <div class="container">
+      Ein Beipsiel für meine Simulationsmodelle ist auf AnyLogic Cloud zu finden. Der Beitrag zeigt im Kontext der Lernfabrik wie bestärkendes Lernen zur Losgrößenplanung und 
+      Anpassung von Produktionsreihenfolgen verwendet werden kann: <br>
+    
       <br>
       Voß, Thomas et al. <br>
       Outperformed by a Computer? - Comparing Human Decisions to Reinforcement Learning Agents, Assigning Lot Sizes in a Learning Factory (June 3, 2021). <br>
@@ -82,220 +82,26 @@
       <iframe class="embed-responsive-item" src="https://cloud.anylogic.com/assets/embed?modelId=32b10382-084a-48fa-82ab-e8926191bee8"></iframe>
     </div>
   </div>
-</section>
 
-<section class="page-section bg-dark text-black mb-0" id="CV">
-  <h2 class="page-section-heading text-center text-uppercase text-white">POLICY SERVING</h2>
+  
     <!-- Icon Divider -->
+    <div class="divider-custom divider-dark">
+      <div class="divider-custom-line"></div>
+    </div>
 
-    <div class="divider-custom divider-light">
-  <div class="divider-custom-line"></div>
-</div>
-
-<div class="container">
-	<div class="card">
-		<div class="card-body">
-
-			<h4 class="header-title">Query Policy to get Predicted Action</h4>
-			<p class="text-muted font-14">
-				Use the fields below to experiment with different inputs and see how the policy reacts.
-			</p>
-
-			<!-- This is where the observations begin, given the 9 obs from the LF, 3 collums with 3 elements should work
-		for repsonsive design they should stack and not stay next to each other,
-		Have to make sure that all 9 elemnts are in the same form -->
-
-			<form name="reg">
-				<div class="form-row">
-					<div class="form-group col-md-4">
-						<input type="number" class="form-control" id="inputStockRacer" placeholder="Stock Racer" required name="inputStockRacer" />
-					</div>
-					<div class="form-group col-md-4">
-						<input type="number" class="form-control" id="inputStockBullbar" placeholder="Stock Bullbar" required name="inputStockBullbar" />
-					</div>
-					<div class="form-group col-md-4">
-						<input type="number" class="form-control" id="inputStockRollcage" placeholder="Stock Rollcage" required name="inputStockRollcage" />
-					</div>
-				</div>
-				<div class="form-row">
-					<div class="form-group col-md-4">
-						<input type="number" class="form-control" id="inputOrdersRacer" placeholder="Orders Racer" required name="inputOrdersRacer" />
-					</div>
-					<div class="form-group col-md-4">
-						<input type="number" class="form-control" id="inputOrdersBullbar" placeholder="Orders Bullbar" required name="inputOrdersBullbar" />
-					</div>
-					<div class="form-group col-md-4">
-						<input type="number" class="form-control" id="inputOrdersRollcage" placeholder="Orders Rollcage" required name="inputOrdersRollcage" />
-					</div>
-				</div>
-				<div class="form-row">
-					<div class="form-group col-md-4">
-						<input type="number" class="form-control" id="inputWIPRacer" placeholder="WIP Racer" required name="inputWIPRacer" />
-					</div>
-					<div class="form-group col-md-4">
-						<input type="number" class="form-control" id="inputWIPBullbar" placeholder="WIP Bullbar" required name="inputWIPBullbar" />
-					</div>
-					<div class="form-group col-md-4">
-						<input type="number" class="form-control" id="inputWIPRollcage" placeholder="WIP Rollcage" required name="inputWIPRollcage" />
-					</div>
-				</div>
-
-      </form>
-
-				<button type="button" class="btn btn-primary" data-target="#success-alert-modal" onclick="myFunction()">
-					Get Policy Prediction
-				</button>
-      
-				<div class="modal fade" id="success-alert-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-					<div class="modal-dialog" role="document">
-						<div class="modal-content">
-							<div class="modal-header">
-								<h5 class="modal-title" id="exampleModalLabel">Coming Soon!</h5>
-								<button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="myFunction()">
-									<span aria-hidden="true">&times;</span>
-								</button>
-							</div>
-
-							<div class="modal-body">
-								In future versions of this demo, we will show what predictions look like here.
-
-							</div>
-
-							<div class="modal-footer">
-								<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-								<button type="button" id="btn-predict" class="btn btn-primary">Predict next Action </button>
-							</div>
-
-						</div>
-					</div>
-				</div>
-
-        <!-- This is the button being used for now! -->
-        <!-- <button class="btn btn-primary" type="submit">Submit form</button> -->
-
-			
-
-      <script>
-        function myFunction(){
-          var myHeaders = new Headers();
-          myHeaders.append("Content-Type", "application/json");
-          myHeaders.append("access-token", "89b3025a-2b1d-4925-be6a-06783a60d17c");
-          // myHeaders.append("Accept", "application/json");
-          // myHeaders.append("Authorization", " Basic Zm9vOmJhcg==");
-
-          var ST0 = parseInt(document.getElementById("inputStockRacer").value);
-          var ST1 = parseInt(document.getElementById("inputStockBullbar").value);
-          var ST2 = parseInt(document.getElementById("inputStockRollcage").value);
-
-          var OT0 = parseInt(document.getElementById("inputOrdersRacer").value);
-          var OT1 = parseInt(document.getElementById("inputOrdersBullbar").value);
-          var OT2 = parseInt(document.getElementById("inputOrdersRollcage").value);
-
-          var WT0 = parseInt(document.getElementById("inputWIPRacer").value);
-          var WT1 = parseInt(document.getElementById("inputWIPBullbar").value);
-          var WT2 = parseInt(document.getElementById("inputWIPRollcage").value);
-
-          var raw = JSON.stringify({
-            "OrderT0": OT0,
-            "OrderT1": OT1,
-            "OrderT2": OT2,
-            "StockT0": ST0,
-            "StockT1": ST1,
-            "StockT2": ST2,
-            "WIPT0": WT0,
-            "WIPT1": WT1,
-            "WIPT2": WT2})
-
-					// To bypass CORS, connect to a proxy.
-					const proxyUrl = "https://cors-anywhere.herokuapp.com/"
-					//const url = `${proxyUrl}https://api.test.devpathmind.com/policy/id4667/predict_raw/`;
-          // Use predict_raw so we can pass in a raw obs array.
-					//var data = {"obs": [0,0,0,0,0,0,0,0,0]};
-
-          const url = `${proxyUrl}https://api.test.devpathmind.com/policy/id4667/predict/`;
-					// const request = new Request(url);
-
-					var raw = JSON.stringify({
-            "orders": [
-              OT0,
-              OT1,
-              OT2
-            ],
-            "stock": [
-              ST0,
-              ST1,
-              ST2
-            ],
-            "wip": [
-              WT0,
-              WT1,
-              WT2
-            ]
-          });
-
-
-					// Test to see if it works.
-					var requestOptions = {
-            method: 'POST',
-            //mode: 'no-cors',
-            headers: myHeaders,
-            body: raw,
-            redirect: "follow"
-          };
-
-          fetch(url, requestOptions)
-            .then(response => response.json())
-            .then(result => {
-              console.log("----");
-              console.log(result);
-              const act = result.actions;
-              document.getElementById('container').innerHTML = act;
-            })
-             .catch(error => console.log('error', error));
-          
-          /*
-					fetch(url, requestOptions)
-					  .then(response => response.json())
-            .then(result => {
-              console.log("---");
-              console.log(result);
-            })
-            .catch(error => console.log('error', error));*/
-          /*
-          var requestOptions = {
-            method: 'POST',
-            mode: 'no-cors',
-            headers: myHeaders,
-            body: raw,
-            //redirect: 'follow'
-          };*/
-
-        };
-      </script>
-    <p>
-    <br>
-    <h4 class="header-title">The recommended action based on the observations is: <div id='container'></div> </h4>
-    </p>
-    
-  </div>
-</div>
-</div>
-
-</div>
-</section>
-
+    <div class="container">
+      Wenn du mehr zu dem Thema wissen möchtest, findest du unten meine Kontaktdaten.
+    </div>
+  </section>
 </body>
 
 <!-- Bootstrap core JavaScript -->
 <script src="../vendor/jquery/jquery.min.js"></script>
 <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-<!-- Plugin JavaScript -->
-<script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
 
 <!-- Contact Form JavaScript -->
 <script src="../js/jqBootstrapValidation.js"></script>
-<script src="../js/contact_me.js"></script>
 
   <!-- Custom scripts for this template -->
 <script src="../js/freelancer.min.js"></script>

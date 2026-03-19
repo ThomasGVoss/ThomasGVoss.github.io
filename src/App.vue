@@ -4,7 +4,7 @@
       <div class="header-inner">
         <h1 class="name">Thomas Voss</h1>
         <div class="divider"></div>
-        <p class="header-sub">Simulation | Logistik | Lehre</p>
+        <p class="header-sub">Logistik | Lehre</p>
       </div>
     </header>
 
@@ -49,7 +49,7 @@
       </div>
 
       <div class="footer-bottom">
-        <small>Copyright © Thomas Voss 2025</small>
+        <small>Copyright © Thomas Voss 2026</small>
       </div>
     </footer>
   </div>
